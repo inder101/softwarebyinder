@@ -1,0 +1,43 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-card">
+            <h2>Welcome to Your Profile</h2>
+
+            <div class="section">
+                <label>Name:</label>
+                <p id="displayName">Loading...</p>
+            </div>
+
+            <div class="section">
+                <label>Email:</label>
+                <p id="displayEmail">Loading...</p>
+            </div>
+
+            <button onclick="logout()">Log Out</button>
+        </div>
+    </div>
+
+    <script>
+        // Display stored user details
+        document.getElementById('displayName').innerText = localStorage.getItem('userName') || 'Name not available';
+        document.getElementById('displayEmail').innerText = localStorage.getItem('userEmail') || 'Email not available';
+
+        function logout() {
+            // Clear user data and redirect to login page
+            localStorage.removeItem('userName');
+            localStorage.removeItem('userEmail');
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>
+ss
